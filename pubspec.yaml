@@ -39,6 +39,7 @@ dependencies:
   build_runner: ^2.3.3
   dio: ^5.0.2
   fpdart: ^0.6.0
+  flutter_bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:
