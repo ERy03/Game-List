@@ -11,7 +11,7 @@ import 'package:game_list/service/api_endpoints.dart';
 abstract class GameService {
   Future<Game> getGames();
   Future<List<Genre>> getGenres();
-  Future<List<Result>> getGamesByGenre(String genreId);
+  Future<List<Result>> getGamesByGenre(int genreId);
 }
 
 class GameServiceImpl implements GameService {
@@ -35,7 +35,7 @@ class GameServiceImpl implements GameService {
   // Fetches all games
   Future<Game> getGames() async {
     try {
-      final response = await dio.getUri(getUrl(path: 'games'));
+      final response = await dio.getUri(getUrl(path: ApiEndPoints.games));
 
       if (response.statusCode == 200) {
         try {
@@ -61,7 +61,7 @@ class GameServiceImpl implements GameService {
   // Fetches all genres
   Future<List<Genre>> getGenres() async {
     try {
-      final response = await dio.getUri(getUrl(path: 'genres'));
+      final response = await dio.getUri(getUrl(path: ApiEndPoints.genres));
 
       if (response.statusCode == 200) {
         try {
@@ -89,13 +89,13 @@ class GameServiceImpl implements GameService {
 
   @override
   // Fetches games by genre
-  Future<List<Result>> getGamesByGenre(String genreId) async {
+  Future<List<Result>> getGamesByGenre(int genreId) async {
     try {
       final response = await dio.getUri(
         getUrl(
-          path: 'games',
+          path: ApiEndPoints.games,
           extraParameters: <String, String>{
-            'genres': genreId,
+            'genres': genreId.toString(),
           },
         ),
       );
