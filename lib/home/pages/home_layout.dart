@@ -8,22 +8,19 @@ class HomeLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Header(),
-              SizedBox(height: 8),
-              Text('Categories'),
-              SizedBox(height: 8),
-              Text('Games by category'),
-              Text('all games'),
-            ],
-          ),
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Header(),
+            SizedBox(height: 8),
+            Text('Categories'),
+            SizedBox(height: 8),
+            Text('Games by category'),
+            Text('all games'),
+          ],
         ),
       ),
     );
