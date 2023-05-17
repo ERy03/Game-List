@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:game_list/home/widgets/category_widget/bloc/category_bloc.dart';
 import 'package:game_list/models/genre.dart';
 
 typedef CategoryCLicked = Function(Genre categorySelected);
@@ -6,51 +8,57 @@ typedef CategoryCLicked = Function(Genre categorySelected);
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
     Key? key,
-    this.category,
-    this.callback,
+    required this.category,
+    required this.callback,
   }) : super(key: key);
 
-  final Genre? category;
-  final CategoryCLicked? callback;
+  final Genre category;
+  final CategoryCLicked callback;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // TODO
-      onTap: () => debugPrint('category tapped'),
-      child: Column(
-        children: [
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 400),
-            curve: Curves.easeInOutCirc,
-            padding: const EdgeInsets.symmetric(horizontal: 2.0),
-            alignment: Alignment.center,
-            height: 60.0,
-            width: 60.0,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.amberAccent,
-            ),
-            child: const Icon(
-              Icons.gamepad_outlined,
-            ),
-          ),
-          const SizedBox(height: 4.0),
-          // TODO
-          const SizedBox(
-            width: 60,
-            child: Text(
-              'game name',
-              style: TextStyle(
-                  fontSize: 10.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87),
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-          )
-        ],
+      onTap: () => callback(category),
+      child: BlocSelector<CategoryBloc, CategoryState, bool>(
+        selector: (state) =>
+            (state.status.isSelected && state.idSelected == category.id)
+                ? true
+                : false,
+        builder: (context, state) {
+          return Column(
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 400),
+                curve: Curves.easeInOutCirc,
+                padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                alignment: Alignment.center,
+                height: state ? 70.0 : 60.0,
+                width: state ? 70.0 : 60.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: state ? Colors.deepOrangeAccent : Colors.amberAccent,
+                ),
+                child: const Icon(
+                  Icons.gamepad_outlined,
+                ),
+              ),
+              const SizedBox(height: 4.0),
+              SizedBox(
+                width: 60,
+                child: Text(
+                  category.name ?? '',
+                  style: const TextStyle(
+                      fontSize: 10.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87),
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              )
+            ],
+          );
+        },
       ),
     );
   }
