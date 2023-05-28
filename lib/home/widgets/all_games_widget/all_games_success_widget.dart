@@ -15,7 +15,7 @@ class AllGamesSuccessWidget extends StatelessWidget {
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.only(
-        top: 24.0,
+        top: 12.0,
       ),
       itemBuilder: (context, index) {
         return AllGamesItem(

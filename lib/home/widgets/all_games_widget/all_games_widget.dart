@@ -29,6 +29,9 @@ class AllGamesWidget extends StatelessWidget {
               fontSize: 18.0,
             ),
           ),
+          const SizedBox(
+            height: 8.0,
+          ),
           Flexible(
             child: BlocBuilder<AllGamesBloc, AllGamesState>(
               builder: (context, state) {

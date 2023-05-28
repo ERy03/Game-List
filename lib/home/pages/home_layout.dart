@@ -14,9 +14,9 @@ class HomeLayout extends StatelessWidget {
       child: Column(
         children: <Widget>[
           const Header(),
-          Container(
-              height: MediaQuery.of(context).size.height * 0.02,
-              color: Colors.red),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.02,
+          ),
           Expanded(
               child: SingleChildScrollView(
             child: SizedBox(
