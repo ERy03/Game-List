@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_list/home/widgets/all_games_widget/all_games_widget.dart';
 import 'package:game_list/home/widgets/category_widget/category_widget.dart';
 import 'package:game_list/home/widgets/header.dart';
 
@@ -11,20 +12,21 @@ class HomeLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Header(),
-                SizedBox(height: 40),
+        children: <Widget>[
+          const Header(),
+          Container(
+              height: MediaQuery.of(context).size.height * 0.02,
+              color: Colors.red),
+          Expanded(
+              child: SingleChildScrollView(
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Column(children: const [
                 CategoriesWidget(),
-                Text('Games by category'),
-                Text('all games'),
-              ],
+                Flexible(child: AllGamesWidget())
+              ]),
             ),
-          ),
+          )),
         ],
       ),
     );
