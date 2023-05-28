@@ -17,7 +17,7 @@ class CategoriesSuccessWidget extends StatelessWidget {
         return SizedBox(
           height: MediaQuery.of(context).size.height * .15,
           child: ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.only(left: 16.0),
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return CategoryItem(
