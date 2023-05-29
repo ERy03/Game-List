@@ -45,3 +45,5 @@ app.*.map.json
 
 # secret keys
 lib/secret.dart
+
+/coverage
