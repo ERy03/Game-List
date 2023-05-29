@@ -1,8 +1,30 @@
-# game_list
+# Game_list
 
 Flutter project that utilizes:
 - RAWG
 - Bloc
+
+## Getting Started
+1. Clone the repo
+2. Create a `secret.dart` file inside lib folder like this:
+```dart
+const apiKey = 'YOUR_API_KEY';
+```
+You can get your api key from [RAWG](https://rawg.io/apidocs)
+
+3. Run `flutter pub get`
+4. Run `flutter run`
+
+## Contributing
+Pull requests are welcome. Please create a new branch and submit a pull request for review.
+## TODO
+- [ ] Localize the app (Use something like easy_localization)
+- [ ] Add login functionality (firebase auth)
+- [ ] Add favorites functionality
+- [ ] Add search functionality
+- [ ] Add game details page
+- [ ] Add SNS sharing functionality
+- [ ] Add pagination for the all games list
 
 ## Learning points
 
