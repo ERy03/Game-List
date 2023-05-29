@@ -37,10 +37,18 @@ class Header extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
+          SizedBox(
             width: 55,
             height: 55,
-            child: CircleAvatar(backgroundColor: Colors.grey),
+            child: CircleAvatar(
+              backgroundColor: Colors.grey[300],
+              child: const Text(
+                '👾',
+                style: TextStyle(
+                  fontSize: 25,
+                ),
+              ),
+            ),
           )
         ],
       ),
