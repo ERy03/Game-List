@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:game_list/home/widgets/all_games_widget/all_games_success_widget.dart';
 import 'package:game_list/home/widgets/all_games_widget/bloc/all_games_bloc.dart';
-import 'package:game_list/home/widgets/all_games_widget/error_game_widget.dart';
+import 'package:game_list/home/widgets/common/error_game_widget.dart';
 
 class AllGamesWidget extends StatelessWidget {
   const AllGamesWidget({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:game_list/home/widgets/category_widget/categoris_success_widget.dart';
+import 'package:game_list/home/widgets/category_widget/categories_success_widget.dart';
 
 import 'bloc/category_bloc.dart';
 
