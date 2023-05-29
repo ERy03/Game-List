@@ -1,3 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:json_annotation/json_annotation.dart';
+
 import 'package:game_list/models/added_by_status.dart';
 import 'package:game_list/models/esrb_rating.dart';
 import 'package:game_list/models/genre.dart';
@@ -6,7 +9,6 @@ import 'package:game_list/models/platform_element.dart';
 import 'package:game_list/models/rating.dart';
 import 'package:game_list/models/short_screenshot.dart';
 import 'package:game_list/models/store.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'result.g.dart';
 
@@ -75,4 +77,9 @@ class Result {
   final List<ShortScreenshot>? shortScreenshots;
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
+
+  @override
+  String toString() {
+    return 'Result(id: $id, slug: $slug, name: $name, released: $released, tba: $tba, backgroundImage: $backgroundImage, rating: $rating, ratingTop: $ratingTop, ratings: $ratings, ratingsCount: $ratingsCount, reviewsTextCount: $reviewsTextCount, added: $added, addedByStatus: $addedByStatus, metacritic: $metacritic, playtime: $playtime, suggestionsCount: $suggestionsCount, updated: $updated, userGame: $userGame, reviewsCount: $reviewsCount, saturatedColor: $saturatedColor, dominantColor: $dominantColor, platforms: $platforms, parentPlatforms: $parentPlatforms, genres: $genres, stores: $stores, clip: $clip, tags: $tags, esrbRating: $esrbRating, shortScreenshots: $shortScreenshots)';
+  }
 }

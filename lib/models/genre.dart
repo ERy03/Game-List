@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
 
 part 'genre.g.dart';
@@ -23,4 +24,9 @@ class Genre {
   final String? language;
 
   factory Genre.fromJson(Map<String, dynamic> json) => _$GenreFromJson(json);
+
+  @override
+  String toString() {
+    return 'Genre(id: $id, name: $name, slug: $slug, gamesCount: $gamesCount, imageBackground: $imageBackground, domain: $domain, language: $language)';
+  }
 }
