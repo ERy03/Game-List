@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_list/home/widgets/all_games_widget/all_games_widget.dart';
+import 'package:game_list/home/widgets/categorized_games_widget/categorized_games_widget.dart';
 import 'package:game_list/home/widgets/category_widget/category_widget.dart';
 import 'package:game_list/home/widgets/header.dart';
 
@@ -15,7 +16,7 @@ class HomeLayout extends StatelessWidget {
         children: <Widget>[
           const Header(),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.02,
+            height: MediaQuery.of(context).size.height * 0.03,
           ),
           Expanded(
               child: SingleChildScrollView(
@@ -23,6 +24,7 @@ class HomeLayout extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
               child: Column(children: const [
                 CategoriesWidget(),
+                CategorizedGamesWidget(),
                 Flexible(child: AllGamesWidget())
               ]),
             ),
